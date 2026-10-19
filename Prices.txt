@@ -11,6 +11,8 @@ Chicken Strips (4) $6.89
 
 Make anything a Medium Combo + $4.07		Large + $5.23
 
+
+
 Wendys:
 Baconator $8.99
 Jr Burger $2.19		Jr Cheeseburger $2.49
@@ -21,6 +23,8 @@ Chicken Strips (4) $6.49
 
 Make anything a Small Combo +$4.62	Medium + $5.37		Large + $6.37
 
+
+
 Burger King:
 Whopper $8.19		Double $9.49			Triple $10.99
 Hamburger $2.69		Cheeseburger $3.39			
@@ -30,11 +34,17 @@ Chicken Nuggets 4: $2.49		10: $4.99	20: $9.98
 
 Make anything a Medium Combo + $5.15		Large + $5.95
 
-Mr. Big (our restaurant):
-The Mr. Big $8.35		Double $9.15
-Hamburger $2.59		Double $3.19
-Cheeseburger $2.99		Double $3.59
+
+
+Mr. Big (our restaurant):					Point system- $1 is 10 points		100 points is $1
+The Mr. Big $8.35		Double $9.15		Veggie single $9.85			Veggie double $10.29
+Hamburger $2.59		Double $3.19		Veggie single $3.99			Veggie double $4.69
+Cheeseburger $2.99		Double $3.59		Veggie single $4.29			Veggie double $4.99
 Chicken Sandwich $6.29
 Chicken Tenders (4) $7.79
-Chicken Nuggets 4: $3.49		6: $3.79	10: $5.89	20: $7.95
+Chicken Nuggets 4: $3.49	6: $3.79	10: $5.89	20: $7.95
+Fry: Small-$2.59	Medium-$3.99	Large-$4.79
+Iced Coffee: Small-$2.79	Medium-$3.19	Large-$3.99
+Hot Coffee/ tea/ chocolate: Small-$2.19		Medium-$2.69	Large-$2.99
+Drink: Small-$1.69	Medium-$1.89	Large-$2.29
 Make anything a Small Combo +$4.15	Medium + $4.85		Large + $5.85
