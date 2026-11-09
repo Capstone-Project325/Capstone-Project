@@ -16,7 +16,7 @@
 
 The MenuExpress Kiosk app prototype was designed using Figma. It includes an opening screen, login screen, home screen, and ordering menu.
 
-Figma Public Link: https://www.figma.com/design/LqC3kiaKIfZnWszWDx9Czf/Capstone-project-prototype?node-id=0-1&t=HBw6y6CMUdaugPFm-1
+Figma Public Link: https://www.figma.com/design/LqC3kiaKIfZnWszWDx9Czf/Capstone-project-prototype?node-id=0-1&t=HBw6y6CMUdaugPFm-1 
 
 ### User Personas
 
