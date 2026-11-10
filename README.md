@@ -106,3 +106,5 @@ Examples:
 Testing Goal
 
 The goal is to identify errors, ensure accurate orders, and provide customers with a reliable ordering experience.
+
+## CI/CD Pipeline

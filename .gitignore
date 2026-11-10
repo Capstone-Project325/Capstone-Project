@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Node and Expo
+node_modules/
+.expo/
+dist/
+web-build/
+
+# Django databases and backups
+*.sqlite3
+*.sqlite3.*
+
+# Logs and testing
+*.log
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# TypeScript
+*.tsbuildinfo
+
+# Backend virtual environment
+menuexpress-backend/bin/
+menuexpress-backend/include/
+menuexpress-backend/lib/
+menuexpress-backend/pyvenv.cfg
