@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -11,6 +11,16 @@ type MenuItem = {
   name: string;
   description: string;
   category: Category;
+  price: string;
+  image: string;
+};
+
+type ApiMenuItem = {
+  id: number;
+  name: string;
+  description: string;
+  category: Category;
+  price: string;
   image: string;
 };
 
@@ -20,6 +30,7 @@ const menuItems: MenuItem[] = [
     name: 'Classic Cheeseburger',
     description: 'Grilled beef, cheddar, crisp lettuce, tomato, and house sauce.',
     category: 'Burgers',
+    price: '2.99',
     image:
       'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=720&q=85',
   },
@@ -28,6 +39,7 @@ const menuItems: MenuItem[] = [
     name: 'Garden Stack',
     description: 'A juicy veggie patty with avocado, greens, and tangy slaw.',
     category: 'Burgers',
+    price: '0.00',
     image:
       'https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=720&q=85',
   },
@@ -36,6 +48,7 @@ const menuItems: MenuItem[] = [
     name: 'Crispy Chicken Sandwich',
     description: 'Crunchy chicken, pickles, and cool herb mayo on a toasted bun.',
     category: 'Chicken',
+    price: '0.00',
     image:
       'https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=720&q=85',
   },
@@ -44,6 +57,7 @@ const menuItems: MenuItem[] = [
     name: 'Grilled Chicken Club',
     description: 'Smoky grilled chicken with fresh greens and ripe tomato.',
     category: 'Chicken',
+    price: '0.00',
     image:
       'https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=720&q=85',
   },
@@ -52,6 +66,7 @@ const menuItems: MenuItem[] = [
     name: 'Golden Fries',
     description: 'Crispy, golden-cut potatoes finished with a pinch of sea salt.',
     category: 'Sides',
+    price: '0.00',
     image:
       'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=720&q=85',
   },
@@ -60,6 +75,7 @@ const menuItems: MenuItem[] = [
     name: 'Onion Rings',
     description: 'Sweet onions in a light, crunchy golden coating.',
     category: 'Sides',
+    price: '0.00',
     image:
       'https://images.unsplash.com/photo-1639024471283-03518883512d?auto=format&fit=crop&w=720&q=85',
   },
@@ -68,6 +84,7 @@ const menuItems: MenuItem[] = [
     name: 'Fresh Lemonade',
     description: 'Bright, refreshing lemonade with a fresh citrus finish.',
     category: 'Drinks',
+    price: '0.00',
     image:
       'https://images.unsplash.com/photo-1656936637945-571e3f0893f9?auto=format&fit=crop&w=720&q=85',
   },
@@ -76,6 +93,7 @@ const menuItems: MenuItem[] = [
     name: 'Peach Iced Tea',
     description: 'Chilled black tea with a hint of sweet, ripe peach.',
     category: 'Drinks',
+    price: '0.00',
     image:
       'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=720&q=85',
   },
@@ -84,6 +102,7 @@ const menuItems: MenuItem[] = [
     name: 'Burger Combo',
     description: 'A classic cheeseburger served with golden fries and a drink.',
     category: 'Combos',
+    price: '0.00',
     image:
       'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=720&q=85',
   },
@@ -92,6 +111,7 @@ const menuItems: MenuItem[] = [
     name: 'Chicken Combo',
     description: 'Crispy chicken sandwich with fries and a refreshing drink.',
     category: 'Combos',
+    price: '0.00',
     image:
       'https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=720&q=85',
   },
@@ -100,7 +120,59 @@ const menuItems: MenuItem[] = [
 export default function HomeScreen() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('Burgers');
   const [addedItems, setAddedItems] = useState<string[]>([]);
-  const visibleItems = menuItems.filter((item) => item.category === selectedCategory);
+  const [serverItems, setServerItems] = useState<MenuItem[]>(menuItems);
+
+  useEffect(() => {
+    async function loadMenuItems() {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/menu/');
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const result: { items: ApiMenuItem[] } = await response.json();
+
+        const mergedItems = menuItems.map((sample) => {
+          const apiItem = result.items.find(
+            (item) => item.name === sample.name,);
+
+            if (!apiItem) return sample;
+
+            return {
+              ...sample,
+              id: String(apiItem.id),
+              description: apiItem.description || sample.description,
+              price: apiItem.price,
+              image: apiItem.image || sample.image,
+            };
+        });
+
+        const newItems = result.items.filter(
+          (item) => !menuItems.some((sample) => sample.name === item.name),
+        )
+        .filter((item) => categories.includes(item.category as Category))
+        .map((item) => ({
+          id: String(item.id),
+          name: item.name,
+          description: item.description,
+          category: item.category as Category,
+          price: item.price,
+          image: item.image,
+        }));
+
+        setServerItems([...mergedItems, ...newItems]);
+      } catch (error) {
+        console.warn('Could not load Django menu; using sample menu. ', error);
+      }
+    }
+
+    void loadMenuItems();
+  }, []);
+
+  const visibleItems = serverItems.filter(
+    (item) => item.category === selectedCategory,
+  );
 
   function addItem(itemId: string) {
     setAddedItems((currentItems) =>
@@ -158,6 +230,7 @@ export default function HomeScreen() {
                 <View style={styles.itemDetails}>
                   <Text style={styles.itemName}>{item.name}</Text>
                   <Text style={styles.itemDescription}>{item.description}</Text>
+                  <Text style={styles.itemPrice}>${item.price}</Text>
                   <Pressable
                     accessibilityRole="button"
                     accessibilityLabel={`${isAdded ? 'Added' : 'Add'} ${item.name}`}
@@ -322,6 +395,12 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 18,
     marginTop: 5,
+    marginBottom: 5,
+  },
+  itemPrice: {
+    color: '#1E7745',
+    fontSize: 16,
+    fontWeight: '700',
     marginBottom: 12,
   },
   addButton: {

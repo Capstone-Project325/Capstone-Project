@@ -4,7 +4,6 @@
 # Member Name: Patrick Cortez
 # Member Name: Koby Gryciuk
 # Member Name: Johann Johnson
-# Member Name: Daniel Pineda
 # Member Name: Gurjot Ghotra
 
 # Capstone Project
@@ -106,3 +105,37 @@ Examples:
 Testing Goal
 
 The goal is to identify errors, ensure accurate orders, and provide customers with a reliable ordering experience.
+
+## CI/CD Pipeline
+
+MenuExpress Kiosk uses GitHub Actions to automate project checks whenever changes are pushed to the main branch or a pull request is submitted to main.
+
+The workflow is located in .github/workflows/ci.yml.
+
+## Pipeline Stages
+
+The workflow contains four stages:
+
+1. Setup: Checks out the repository and configures the Python and Node.js environments
+2. Dependencies: Installs the backend and frontend dependencies.
+3. Test: Runs Python compilation checks and TypeScript checks to identify errors.
+4. Deploy: Runs after successful checks when changes are pushed to main. The current deployment step is a placeholder and does not yet deploy the application to a hosting service.
+
+## Branch Protection
+
+The main branch is protected using a GitHub repository ruleset.
+
+The ruleset requires:
+
+• Pull requests before merging changes into main.
+• At least one approving teammate review.
+• Required status checks to pass before merging. 
+• Branches to be up to date before merging. 
+• Force pushes to be blocked.
+• Branch deletions to be restricted.
+
+## Pull Request Workflow
+
+Team members develop features on separate branches and submit pull requests to main. Changes must pass the required checks and receive teammate approval before they can be merged.
+
+This process helps maintain code quality, reduce errors, and ensure that changes are reviewed before reaching the main branch.

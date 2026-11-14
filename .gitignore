@@ -3,16 +3,23 @@
 .venv/
 venv/
 env/
+menuexpress-backend/bin/
+menuexpress-backend/include/
+menuexpress-backend/lib/
+menuexpress-backend/pyvenv.cfg
 
 # Python cache files
 __pycache__/
 *.pyc
 *.pyo
+*.py[cod]
 
-# Django database
+# Django databases and backups
 db.sqlite3
+*.sqlite3
+*.sqlite3.*
 
-# Environment variables
+# Environment variables and secrets
 .env
 .env.*
 !.env.example
@@ -25,7 +32,18 @@ db.sqlite3
 .DS_Store
 Thumbs.db
 
-# Testing files
+# Node and Expo
+node_modules/
+.expo/
+dist/
+web-build/
+
+# Logs and testing
+*.log
 .pytest_cache/
+.mypy_cache/
 .coverage
 htmlcov/
+
+# TypeScript
+*.tsbuildinfo
