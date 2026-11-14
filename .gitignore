@@ -1,0 +1,31 @@
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Django database
+db.sqlite3
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# VS Code and editor files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Testing files
+.pytest_cache/
+.coverage
+htmlcov/
