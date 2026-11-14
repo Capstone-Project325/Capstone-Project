@@ -1,0 +1,34 @@
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+# MenuExpress Item Customization API
+
+@api_view(["POST"])
+def customize_item(request):
+
+    # Get customer's selections
+    bacon = request.data.get("bacon", False)
+    extra_cheese = request.data.get("extra_cheese", False)
+    remove_pickles = request.data.get("remove_pickles", False)
+
+    # Base price of cheeseburger in cents
+    total_cents = 599
+
+    # Add prices for extras
+    if bacon:
+        total_cents += 150
+
+    if extra_cheese:
+        total_cents += 75
+
+    # Create customized order
+    customized_order = {
+        "item": "Cheeseburger",
+        "bacon": bacon,
+        "extra_cheese": extra_cheese,
+        "remove_pickles": remove_pickles,
+        "total_price": total_cents / 100
+    }
+
+    return Response(customized_order)
