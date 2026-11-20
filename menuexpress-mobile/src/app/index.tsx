@@ -2,6 +2,8 @@ import { Image } from 'expo-image';
 import { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { useCart, formatPrice } from '@/context/CartContext';
 
 const categories = ['Burgers', 'Chicken', 'Sides', 'Drinks', 'Combos'] as const;
 type Category = (typeof categories)[number];
@@ -119,9 +121,25 @@ const menuItems: MenuItem[] = [
 
 export default function HomeScreen() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('Burgers');
-  const [addedItems, setAddedItems] = useState<string[]>([]);
   const [serverItems, setServerItems] = useState<MenuItem[]>(menuItems);
+  const router = useRouter();
+  const { items, totals, dispatch } = useCart();
 
+  function addItem(item: MenuItem) {
+    dispatch({
+      type: 'ADD',
+      payload: {
+        lineId: `${item.id}-standard`,
+        id: item.id,
+        name: item.name,
+        image: item.image,
+        unitPrice: Math.round(parseFloat(item.price) * 100),
+        quantity: 1,
+        customizations: [],
+      },
+    });
+  }
+  
   useEffect(() => {
     async function loadMenuItems() {
       try {
@@ -174,12 +192,6 @@ export default function HomeScreen() {
     (item) => item.category === selectedCategory,
   );
 
-  function addItem(itemId: string) {
-    setAddedItems((currentItems) =>
-      currentItems.includes(itemId) ? currentItems : [...currentItems, itemId],
-    );
-  }
-
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -223,6 +235,8 @@ export default function HomeScreen() {
 
         <View style={styles.itemList}>
           {visibleItems.map((item) => {
+            const cartLine = items.find((i) => i.id === item.id);
+            const isAdded = !!cartLine;
             const isAdded = addedItems.includes(item.id);
             return (
               <View key={item.id} style={styles.itemCard}>
@@ -234,14 +248,14 @@ export default function HomeScreen() {
                   <Pressable
                     accessibilityRole="button"
                     accessibilityLabel={`${isAdded ? 'Added' : 'Add'} ${item.name}`}
-                    onPress={() => addItem(item.id)}
+                    onPress={() => addItem(item)}
                     style={({ pressed }) => [
                       styles.addButton,
                       isAdded && styles.addButtonAdded,
                       pressed && styles.buttonPressed,
                     ]}>
                     <Text style={[styles.addButtonText, isAdded && styles.addButtonTextAdded]}>
-                      {isAdded ? 'Added' : 'Add'}
+                      {isAdded ? `Added · ${cartLine!.quantity}` : 'Add'}
                     </Text>
                     {!isAdded && <Text style={styles.addButtonPlus}>+</Text>}
                   </Pressable>
