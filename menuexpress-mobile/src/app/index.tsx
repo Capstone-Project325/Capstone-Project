@@ -237,7 +237,6 @@ export default function HomeScreen() {
           {visibleItems.map((item) => {
             const cartLine = items.find((i) => i.id === item.id);
             const isAdded = !!cartLine;
-            const isAdded = addedItems.includes(item.id);
             return (
               <View key={item.id} style={styles.itemCard}>
                 <Image source={{ uri: item.image }} style={styles.itemImage} contentFit="cover" />
