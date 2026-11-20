@@ -25,7 +25,7 @@ export function CartItemCard({ item, index, onEdit, onRemove }: Props) {
       </View>
 
       <View style={s.itemRow}>
-        <Image source={item.image} style={s.image} />
+        <Image source={{ uri: item.image}} style={s.image} />
         <View style={{ marginLeft: 16 }}>
           <Text style={s.itemName}>{item.name}</Text>
           <Text style={s.sub}>Qty: {item.quantity}</Text>
