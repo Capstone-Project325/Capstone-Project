@@ -2,7 +2,7 @@ import { View, Text, ScrollView, Pressable, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { useCart, formatPrice } from "@/context/CartContext";
-import { CartItemCard } from "@/components/cart-item-card";
+import { CartItemCard } from "@/constants/cart-item-card";
 import { CartColors as C } from "@/constants/cart-colors";
 
 export default function CheckoutScreen() {
