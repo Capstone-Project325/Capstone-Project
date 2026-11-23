@@ -84,6 +84,18 @@ jobs:
         working-directory: menuexpress-backend
         run: python -m compileall -q .
 
+      - name: Run backend unit tests
+        working-directory: menuexpress-backend
+        env:
+          MONGODB_URI: mongodb://localhost:27017/menuexpress
+        run: python manage.py test menu.tests --verbosity 2
+
+      - name: Run Django checks
+        working-directory: menuexpress-backend
+        env:
+          MONGODB_URI: mongodb://localhost:27017/menuexpress
+        run: python manage.py check
+
       - name: Check TypeScript
         working-directory: menuexpress-mobile
         run: npx tsc --noEmit
@@ -96,3 +108,45 @@ jobs:
     steps:
       - name: Prepare deployment artifact
         run: echo "All checks passed. Ready for deployment."
+
+  eval:
+    name: Eval
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo:7.0
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --quiet --eval 'db.adminCommand({ ping: 1 }).ok'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      MONGODB_URI: mongodb://localhost:27017/menuexpress
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install backend requirements
+        working-directory: menuexpress-backend
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Prepare evaluation menu
+        working-directory: menuexpress-backend
+        run: |
+          python manage.py migrate --noinput
+          python import_menu.py
+
+      - name: Run real-model evaluation
+        working-directory: menuexpress-backend
+        run: python evaluations/run_eval.py

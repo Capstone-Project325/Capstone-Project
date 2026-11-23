@@ -1,0 +1,92 @@
+[
+  {
+    "id": "beef-burger",
+    "preference": "I want a beef burger with classic toppings.",
+    "expected_categories": ["Burgers"],
+    "expected_any_terms": ["beef"]
+  },
+  {
+    "id": "double-burger",
+    "preference": "Recommend a filling burger with two patties.",
+    "expected_categories": ["Burgers"],
+    "expected_any_terms": ["double", "two"]
+  },
+  {
+    "id": "crispy-chicken",
+    "preference": "I would like a crispy chicken sandwich.",
+    "expected_categories": ["Chicken"],
+    "expected_any_terms": ["chicken"]
+  },
+  {
+    "id": "chicken-tenders",
+    "preference": "Something with chicken tenders, please.",
+    "expected_categories": ["Chicken"],
+    "expected_any_terms": ["tender"]
+  },
+  {
+    "id": "veggie-burger",
+    "preference": "I want a vegetarian burger.",
+    "expected_categories": ["Veggie"],
+    "expected_any_terms": ["veggie", "vegetable", "bean"]
+  },
+  {
+    "id": "mushroom-cheese",
+    "preference": "A veggie burger with mushrooms and Swiss cheese sounds good.",
+    "expected_categories": ["Veggie"],
+    "expected_any_terms": ["mushroom", "swiss"]
+  },
+  {
+    "id": "eggplant-parmesan",
+    "preference": "I am in the mood for eggplant with tomato and cheese.",
+    "expected_categories": ["Veggie"],
+    "expected_any_terms": ["eggplant"]
+  },
+  {
+    "id": "fries",
+    "preference": "I would like some crispy fries.",
+    "expected_categories": ["Sides"],
+    "expected_any_terms": ["fries", "potato"]
+  },
+  {
+    "id": "potato-side",
+    "preference": "Suggest a potato-based side dish.",
+    "expected_categories": ["Sides"],
+    "expected_any_terms": ["potato", "fries"]
+  },
+  {
+    "id": "iced-coffee",
+    "preference": "I want a cold coffee drink over ice.",
+    "expected_categories": ["Drinks"],
+    "expected_any_terms": ["coffee"]
+  },
+  {
+    "id": "hot-coffee",
+    "preference": "A hot coffee would be great.",
+    "expected_categories": ["Drinks"],
+    "expected_any_terms": ["coffee"]
+  },
+  {
+    "id": "tea",
+    "preference": "Please recommend a cup of tea.",
+    "expected_categories": ["Drinks"],
+    "expected_any_terms": ["tea"]
+  },
+  {
+    "id": "hot-chocolate",
+    "preference": "I would like a warm chocolate drink.",
+    "expected_categories": ["Drinks"],
+    "expected_any_terms": ["chocolate", "cocoa"]
+  },
+  {
+    "id": "soda",
+    "preference": "Something cold and fizzy to drink.",
+    "expected_categories": ["Drinks"],
+    "expected_any_terms": ["soda"]
+  },
+  {
+    "id": "cheeseburger",
+    "preference": "I want a beef burger with melted cheese.",
+    "expected_categories": ["Burgers"],
+    "expected_any_terms": ["cheese", "beef"]
+  }
+]

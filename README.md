@@ -108,34 +108,28 @@ The goal is to identify errors, ensure accurate orders, and provide customers wi
 
 ## CI/CD Pipeline
 
-MenuExpress Kiosk uses GitHub Actions to automate project checks whenever changes are pushed to the main branch or a pull request is submitted to main.
+## AI Meal Recommendation
 
-The workflow is located in .github/workflows/ci.yml.
+MenuExpress uses Google's Gemini API to recommend available menu items based on customer preferences.
 
-## Pipeline Stages
+The feature includes a versioned prompt, input validation, and a fallback recommendation when the AI service fails.
 
-The workflow contains four stages:
+### AI Evaluation
 
-1. Setup: Checks out the repository and configures the Python and Node.js environments
-2. Dependencies: Installs the backend and frontend dependencies.
-3. Test: Runs Python compilation checks and TypeScript checks to identify errors.
-4. Deploy: Runs after successful checks when changes are pushed to main. The current deployment step is a placeholder and does not yet deploy the application to a hosting service.
+The evaluation suite contains 15 examples and checks:
+- Hallucinated menu items (100% pass required).
+- Preference consistency (80% required).
+- Repeated-run consistency (80% required).
 
-## Branch Protection
+Run backend tests:
 
-The main branch is protected using a GitHub repository ruleset.
+```bash
+python manage.py test menu.tests --verbosity 2
+```
 
-The ruleset requires:
+Run the evaluation suite:
+```bash
+python evaluations/run_eval.py
+```
 
-• Pull requests before merging changes into main.
-• At least one approving teammate review.
-• Required status checks to pass before merging. 
-• Branches to be up to date before merging. 
-• Force pushes to be blocked.
-• Branch deletions to be restricted.
-
-## Pull Request Workflow
-
-Team members develop features on separate branches and submit pull requests to main. Changes must pass the required checks and receive teammate approval before they can be merged.
-
-This process helps maintain code quality, reduce errors, and ensure that changes are reviewed before reaching the main branch.
+Prompt injection is a known risk that will be addressed in Sprint 4.
