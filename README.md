@@ -108,3 +108,42 @@ Testing Goal
 The goal is to identify errors, ensure accurate orders, and provide customers with a reliable ordering experience.
 
 ## CI/CD Pipeline
+
+## AI Meal Recommendation
+
+The Django backend provides a Gemini-powered meal recommendation endpoint using the versioned prompt at `menuexpress-backend/prompts/meal_recommendation_v1.txt`. The model defaults to `gemini-3.8-flash`; set `GEMINI_MODEL` to select another supported Gemini generateContent model.
+
+Send a non-empty preference of at most 500 characters:
+
+```http
+POST /api/menu/ai-recommendation/
+Content-Type: application/json
+
+{"preference": "I want a beef burger"}
+```
+
+The response includes `item_names`, `recommendation`, and a `fallback` boolean. Recommendations are checked against currently available database items. When the API key is missing, Gemini is unavailable, or its response is invalid, the backend returns a deterministic database-based fallback. Allergen information may be incomplete or unverified; the feature never treats a recommendation as allergy-safe.
+
+For local use, add the following to the ignored `menuexpress-backend/.env` file and keep the real key private:
+
+```dotenv
+GEMINI_API_KEY=your_key_here
+GEMINI_MODEL=gemini-3.8-flash
+```
+
+Add a repository Actions secret named `GEMINI_API_KEY` under **Settings > Secrets and variables > Actions**. The pull-request Eval job reads this secret; it fails when the key is unavailable, real-model calls fall back, or evaluation thresholds are missed.
+
+From `menuexpress-backend/`, run the mocked unit tests and Django checks with:
+
+```bash
+python manage.py test menu.tests --verbosity 2
+python manage.py check
+```
+
+The isolated golden-dataset suite contains 15 customer preferences and makes real Gemini calls against the available database menu. With a configured MongoDB database populated with menu items and `GEMINI_API_KEY` set, run it with:
+
+```bash
+python evaluations/run_eval.py
+```
+
+The evaluation uses temperature zero, requires a 100% exact available-item-name pass rate and at least 80% preference consistency, and exits nonzero when thresholds are missed or the API falls back. Prompt version changes should use a new versioned prompt file and update the service/tests deliberately. Prompt injection remains a risk to address in Sprint 4; current prompt instructions and output validation are defense-in-depth, not a complete injection defense.
