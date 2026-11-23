@@ -2,6 +2,8 @@ import { Image } from 'expo-image';
 import { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { useCart, formatPrice } from '@/context/CartContext';
 
 const categories = ['Burgers', 'Chicken', 'Veggie', 'Sides', 'Drinks'] as const;
 type Category = (typeof categories)[number];
@@ -236,9 +238,7 @@ const menuItems: MenuItem[] = [
 
 export default function HomeScreen() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('Burgers');
-  const [addedItems, setAddedItems] = useState<string[]>([]);
   const [serverItems, setServerItems] = useState<MenuItem[]>(menuItems);
-  const [selectedAllergens, setSelectedAllergens] = useState<string[]>([]);
 
   useEffect(() => {
     async function loadMenuItems() {
@@ -284,27 +284,9 @@ export default function HomeScreen() {
     (item) => item.category === selectedCategory,
   );
 
-  const getAllergenWarnings = (item: MenuItem) => {
-    if (item.allergens == null) {
-      return [];
-    }
-
-    return selectedAllergens.filter((allergen) =>
-      item.allergens?.includes(allergen),
-  );
-};
-
   function addItem(itemId: string) {
     setAddedItems((currentItems) =>
       currentItems.includes(itemId) ? currentItems : [...currentItems, itemId],
-    );
-  }
-
-  function toggleAllergen(allergenId: string) {
-    setSelectedAllergens((currentAllergens) =>
-      currentAllergens.includes(allergenId)
-        ? currentAllergens.filter((selectedId) => selectedId !== allergenId)
-        : [...currentAllergens, allergenId],
     );
   }
 
@@ -405,9 +387,6 @@ export default function HomeScreen() {
         <View style={styles.itemList}>
           {visibleItems.map((item) => {
             const isAdded = addedItems.includes(item.id);
-            const isUnavailable = item.is_available === false;
-            const allergenWarnings = getAllergenWarnings(item);
-            const hasUnverifiedAllergens = item.allergens == null;
             return (
               <View key={item.id} style={styles.itemCard}>
                 <Image source={{ uri: item.image }} style={styles.itemImage} contentFit="cover" />
@@ -433,12 +412,7 @@ export default function HomeScreen() {
                   <Text style={styles.itemPrice}>${Number(item.price).toFixed(2)}</Text>
                   <Pressable
                     accessibilityRole="button"
-                    accessibilityLabel={
-                      isUnavailable
-                        ? `${item.name} unavailable`
-                        : `${isAdded ? 'Added' : 'Add'} ${item.name}`
-                    }
-                    disabled={isUnavailable}
+                    accessibilityLabel={`${isAdded ? 'Added' : 'Add'} ${item.name}`}
                     onPress={() => addItem(item.id)}
                     style={({ pressed }) => [
                       styles.addButton,
@@ -446,17 +420,10 @@ export default function HomeScreen() {
                       isUnavailable && styles.addButtonUnavailable,
                       pressed && styles.buttonPressed,
                     ]}>
-                    <Text
-                      style={[
-                        styles.addButtonText,
-                        isAdded && styles.addButtonTextAdded,
-                        isUnavailable && styles.addButtonTextUnavailable,
-                      ]}>
-                      {isUnavailable ? 'Unavailable' : isAdded ? 'Added' : 'Add'}
-                      </Text>
-                      {!isAdded && !isUnavailable && (
-                        <Text style={styles.addButtonPlus}>+</Text>
-                      )}
+                    <Text style={[styles.addButtonText, isAdded && styles.addButtonTextAdded]}>
+                      {isAdded ? 'Added' : 'Add'}
+                    </Text>
+                    {!isAdded && <Text style={styles.addButtonPlus}>+</Text>}
                   </Pressable>
                 </View>
               </View>
