@@ -31,6 +31,7 @@ def normalize(text):
     )
 
 
+
 def extract_prices(text):
     # Remove budget references before checking menu prices.
     text = re.sub(
@@ -42,11 +43,12 @@ def extract_prices(text):
     )
 
     matches = re.findall(
-        r"\$\s*(\d+(?:\.\d{1,2})?)",
+        r"\$\s*(\d+\.\d{2})",
         text
     )
 
     return {Decimal(value) for value in matches}
+
 
 
 def extract_points(text):

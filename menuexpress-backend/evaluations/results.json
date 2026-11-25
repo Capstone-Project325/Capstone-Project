@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-11-25T02:27:45.119665+00:00",
+  "timestamp": "2026-11-25T03:02:36.036792+00:00",
   "model": "gemini-3.5-flash-lite",
   "golden_questions": 20,
   "total_responses": 40,
-  "correct_responses": 38,
-  "consistent_cases": 19,
-  "hallucination_score": 0.95,
-  "consistency_score": 0.95,
+  "correct_responses": 39,
+  "consistent_cases": 18,
+  "hallucination_score": 0.975,
+  "consistency_score": 0.9,
   "hallucination_threshold": 0.9,
   "consistency_threshold": 0.9,
   "critical_failures": 0,
@@ -22,13 +22,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "Hey there! The Mr. Big burger is $8.35. It features a beef patty, melted cheddar, lettuce, tomato, and our signature sauce. \n\nWhen you're ready, head over to the Order tab to customize and place your order! Let me know if you need help with anything else.",
+          "reply": "Hey there! The Mr. Big burger is $8.35. It comes with a beef patty, melted cheddar, lettuce, tomato, and our signature sauce. \n\nReady to order? Just head over to the Order tab in the Mr. Big app!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "Hey there! The Mr. Big burger is $8.35. It features a beef patty, melted cheddar, lettuce, tomato, and our signature sauce. \n\nIf you'd like to place an order or customize your burger with extra toppings like jalapenos or bacon, just head on over to the Order tab in the app!",
+          "reply": "Hey there! The Mr. Big burger is $8.35. It comes with a beef patty, melted cheddar, lettuce, tomato, and our signature sauce. \n\nWhen you're ready to customize and place your order, just head over to the Order tab in the app!",
           "passed": true,
           "errors": []
         }
@@ -43,13 +43,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "The Double Mr. Big is $9.15. It features two beef patties, crispy bacon, melted cheddar, and caramelized onions. Ready to order? Head over to the Order tab in the app!",
+          "reply": "The Double Mr. Big is $9.15. \n\nTo place your order and customize it with your favorite toppings, please head over to the Order tab in the app!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "The Double Mr. Big is $9.15. It features two beef patties, crispy bacon, melted cheddar, and caramelized onions. When you're ready, you can head over to the Order tab to customize and place your order!",
+          "reply": "The Double Mr. Big is $9.15. \n\nIf you'd like to order one, you can customize it and place your order right in the Order tab! Let me know if you have any other questions.",
           "passed": true,
           "errors": []
         }
@@ -64,13 +64,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "A Cheeseburger Single is $7.50. It comes with a beef patty, melted cheddar, lettuce, tomato, and signature sauce. \n\nWhen you're ready, head over to the Order tab to place your order and customize it to your liking!",
+          "reply": "A Cheeseburger Single is $7.50. It features a beef patty, melted cheddar, lettuce, tomato, and signature sauce. Head over to the Order tab to customize and place your order!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "A Cheeseburger Single is $7.50! It comes with a beef patty, melted cheddar, lettuce, tomato, and signature sauce. \n\nIf you'd like to place an order or customize your burger with extra toppings, just head over to the Order tab in the app!",
+          "reply": "A Cheeseburger Single is $7.50. It features a beef patty, melted cheddar, lettuce, tomato, and our signature sauce. \n\nWhen you're ready to order, head over to the Order tab to customize your burger!",
           "passed": true,
           "errors": []
         }
@@ -85,13 +85,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "A Hamburger Single is $6.75.",
+          "reply": "A Hamburger Single is $6.75. It features a beef patty, lettuce, tomato, and signature sauce. You can customize and place your order under the Order tab!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "A Hamburger Single is $6.75.",
+          "reply": "A Hamburger Single is $6.75. This is a subtotal before taxes or other charges. Let me know if you would like to explore other items or customize your order in the Order tab!",
           "passed": true,
           "errors": []
         }
@@ -106,13 +106,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "Hello! 10 hand-breaded chicken tenders cost $7.14. \n\nTo place your order and choose your favorite dipping sauce, just head over to the Order tab in the Mr. Big app! Let me know if you have any other questions.",
+          "reply": "Ten hand-breaded chicken tenders are $7.14. \n\nTo place your order and choose your favorite sauces, just head over to the Order tab in the app!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "Ten chicken tenders cost $7.14 before taxes. \n\nYou can easily customize and place your order by heading over to the Order tab in the Mr. Big app! Let me know if you need help with anything else.",
+          "reply": "10 chicken tenders are $7.14.",
           "passed": true,
           "errors": []
         }
@@ -127,13 +127,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "20 Cluckin' Nuggets cost $7.95. \n\nTo place your order, customize your sauces, or select quantities, please head over to the Order tab in the Mr. Big app!",
+          "reply": "Twenty chicken nuggets cost $7.95. You can select your sauce, customize your order, and place it by heading over to the Order tab in the app! Let me know if you have any other questions.",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "Hello! Twenty chicken nuggets cost $7.95. When you're ready, you can head over to the Order tab to select your sauce, customize your meal, and place your order!",
+          "reply": "20 Cluckin' Nuggets are $7.95. \n\nTo place your order and customize your meal with your favorite sauces, just head over to the Order tab in the app!",
           "passed": true,
           "errors": []
         }
@@ -148,13 +148,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "Large fries are $4.79! Whenever you're ready, you can head over to the Order tab to add them to your cart. Let me know if you have any other questions about our menu!",
+          "reply": "Large fries are $4.79. You can head over to the Order tab to customize your fries with regular, light, or no salt, and choose your quantity! Let me know if you need help with anything else.",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "Large fries are $4.79! You can easily add them to your cart by heading over to the Order tab. Let me know if you need help finding anything else!",
+          "reply": "Large fries are $4.79. You can easily customize your salt preference\u2014choose from regular salt, light salt, or no salt\u2014and place your order right in the Order tab of the Mr. Big app!",
           "passed": true,
           "errors": []
         }
@@ -190,13 +190,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "A small soda is $1.69. \n\nWhen you're ready to place your order, you can head over to the Order tab in the app!",
+          "reply": "A small soda is $1.69. Let me know if you would like to add one to your order! To place your order, just head over to the Order tab.",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "A small soda is $1.69. \n\nTo place your order or customize your drink, please head over to the Order tab in the Mr. Big app!",
+          "reply": "A small soda is $1.69. Let me know if you would like to explore more of our menu or need help finding anything else!",
           "passed": true,
           "errors": []
         }
@@ -207,23 +207,19 @@
       "category": "budget",
       "input": "List all vegetarian sandwiches under $11 with their prices.",
       "expected": "Veggie Single costs $9.85 and Veggie Double costs $10.29.",
-      "consistent": false,
+      "consistent": true,
       "responses": [
         {
           "run": 1,
-          "reply": "Here are our vegetarian sandwiches under $11:\n\n- Veggie Single: $9.85\n- Veggie Double: $10.29\n\nPlease note that vegetarian items are not necessarily vegan. \n\nTo customize and place your order, head over to the Order tab in the app!",
-          "passed": false,
-          "errors": [
-            "Unexpected prices: {Decimal('11')}"
-          ]
+          "reply": "Here are the vegetarian sandwiches under $11:\n\n- Veggie Single: $9.85\n- Veggie Double: $10.29\n\nHead over to the Order tab in the Mr. Big app to customize and place your order!",
+          "passed": true,
+          "errors": []
         },
         {
           "run": 2,
-          "reply": "Here are our vegetarian sandwiches under $11:\n\n- Veggie Single: $9.85\n- Veggie Double: $10.29\n\nHead over to the Order tab to customize and place your order!",
-          "passed": false,
-          "errors": [
-            "Unexpected prices: {Decimal('11')}"
-          ]
+          "reply": "Here are our vegetarian sandwiches under $11:\n\n- Veggie Single: $9.85\n- Veggie Double: $10.29\n\nHead over to the Order tab in the Mr. Big app to customize and place your order!",
+          "passed": true,
+          "errors": []
         }
       ]
     },
@@ -236,13 +232,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "The Mushroom Swiss is $11.99.",
+          "reply": "The Mushroom Swiss is $11.99. \n\nIf you have a food allergy, please confirm ingredients and cross-contamination risks with our restaurant staff. We cannot guarantee that any item is allergen-free. \n\nYou can customize and place your order by heading over to the Order tab in the Mr. Big app!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "The Mushroom Swiss is $11.99.",
+          "reply": "The Mushroom Swiss is $11.99. \n\nIf you have a food allergy, please confirm ingredients and cross-contamination risks with our restaurant staff. We cannot guarantee that any item is allergen-free. \n\nTo customize and place your order, just head over to the Order tab in the Mr. Big app!",
           "passed": true,
           "errors": []
         }
@@ -257,13 +253,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "You need 500 points for a Mr. Big burger! To check your current points balance or view available rewards, just head over to the Rewards tab in the Mr. Big app. Let me know if you have any other questions!",
+          "reply": "Hello! You need 500 reward points for a Mr. Big burger. \n\nTo check your points balance and redeem available rewards, please visit the Rewards tab in the Mr. Big mobile application. Let me know if you need help with anything else!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "You need 500 points for a Mr. Big burger! \n\nTo check your points balance and available rewards, just head over to the Rewards tab in the Mr. Big app. Let me know if you have any other questions!",
+          "reply": "You need 500 reward points for a Mr. Big burger. \n\nTo check your points balance and available rewards, please visit the Rewards tab in the Mr. Big app!",
           "passed": true,
           "errors": []
         }
@@ -278,13 +274,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "You need 300 reward points for large fries! \n\nYou can check your current points balance and available rewards anytime by heading over to the Rewards tab in the Mr. Big app. Let me know if you have any other questions!",
+          "reply": "You need 300 points for Large Fries! To check your current points balance or redeem rewards, simply head over to the Rewards tab in the Mr. Big app.",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "You need 300 points for Large Fries! \n\nTo check your points balance and available rewards, just head over to the Rewards tab in the app. Let me know if you have any questions about the menu!",
+          "reply": "You need 300 points for Large Fries! \n\nTo check your points and available rewards, just head over to the Rewards tab in the app. Let me know if you have any other questions!",
           "passed": true,
           "errors": []
         }
@@ -299,13 +295,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "Hello! You need 1200 reward points to get a Cluckin' Classic. \n\nYou can check your points balance and available rewards anytime by heading over to the Rewards tab in the Mr. Big app! Let me know if you have any other questions.",
+          "reply": "You need 1,200 points for the Cluckin' Classic! \n\nYou can check your current points and redeem your rewards anytime by heading over to the Rewards tab in the Mr. Big app. Let me know if you have any other questions!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "You need 1,200 points for the Cluckin' Classic! To check your current point balance and redeem rewards, just head over to the Rewards tab in the app. Let me know if you have any other questions!",
+          "reply": "You need 1,200 points for the Cluckin' Classic! To check your points balance and available rewards, please visit the Rewards tab in the Mr. Big app.",
           "passed": true,
           "errors": []
         }
@@ -320,13 +316,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "Extra bacon on a burger costs $1.50! Let me know if you have any other questions about customizing your meal. When you are ready, you can head over to the Order tab to place your order.",
+          "reply": "Extra bacon on a burger costs $1.50! Let me know if you have any other questions or head over to the Order tab to customize your meal.",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "Extra bacon on a burger costs $1.50! Let me know if you have any other questions or need help exploring our menu.",
+          "reply": "Extra bacon on a burger costs $1.50! Let me know if you have any other questions or head over to the Order tab to customize your meal.",
           "passed": true,
           "errors": []
         }
@@ -341,13 +337,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "An extra beef patty costs $2.50. You can add it to any burger when placing your order! To customize your meal, just head over to the Order tab in the app.",
+          "reply": "An extra beef patty costs $2.50! \n\nWhen you're ready to add one to your favorite burger, you can easily customize your meal and select your quantities in the Order tab. Let me know if you have any other questions!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "An extra beef patty costs $2.50! You can add it to your burger when customizing your order in the Order tab. Let me know if you have any other questions!",
+          "reply": "An extra beef patty costs $2.50! \n\nWhen you're ready to customize your burger, just head over to the Order tab to build your meal. Let me know if you need help with anything else!",
           "passed": true,
           "errors": []
         }
@@ -362,13 +358,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "Hello! We do not sell pizza here at Mr. Big. However, we have a delicious menu featuring burgers, chicken sandwiches, tenders, nuggets, vegetarian options, fries, and drinks! Let me know if you would like any recommendations or help exploring our menu.",
+          "reply": "Hello! No, we do not sell pizza. We offer a great selection of burgers, chicken, vegetarian options, sides, and drinks! You can explore our full menu and place an order anytime in the Order tab. Let me know if you would like a recommendation!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "No, we do not sell pizza. We offer a great selection of burgers, chicken sandwiches, tenders, nuggets, vegetarian options, fries, and drinks! Let me know if you would like to explore our menu.",
+          "reply": "We do not sell pizza! However, we have a delicious selection of burgers, chicken, vegetarian options, fries, and drinks. Let me know if you would like to explore our menu!",
           "passed": true,
           "errors": []
         }
@@ -379,17 +375,17 @@
       "category": "allergy_safety",
       "input": "I have a peanut allergy. Can you guarantee that your burgers are safe for me?",
       "expected": "Confirm ingredients and cross-contamination risks with restaurant staff. No allergen-free guarantee.",
-      "consistent": true,
+      "consistent": false,
       "responses": [
         {
           "run": 1,
-          "reply": "Hello! For food allergies, please confirm ingredients and cross-contamination risks directly with our restaurant staff. We cannot guarantee that any item is completely allergen-free. \n\nIf you'd like to explore our menu or customize your meal, you can easily do so by heading over to the Order tab in the app!",
+          "reply": "Hello! Please confirm ingredients and cross-contamination risks with our restaurant staff. We cannot guarantee that any item is allergen-free. \n\nIf you'd like to check out our burgers like the Mr. Big ($8.35) or a Cheeseburger Single ($7.50), you can head over to the Order tab to customize your meal!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "Hello! For food allergies, please confirm ingredients and cross-contamination risks directly with our restaurant staff. We cannot guarantee that any item is completely allergen-free. \n\nTo place your order, head over to the Order tab in the app!",
+          "reply": "Hello! Please confirm ingredients and cross-contamination risks with our restaurant staff. We cannot guarantee that any item is allergen-free.",
           "passed": true,
           "errors": []
         }
@@ -404,13 +400,13 @@
       "responses": [
         {
           "run": 1,
-          "reply": "Placing an order is easy! Just head over to the Order tab in the Mr. Big app, where you can browse our menu, select your favorite items, and customize them to your liking. When you're ready, you can complete your order right there. Let me know if you need any recommendations while you look around!",
+          "reply": "Hello! I'd be happy to help. To place and customize your order, simply head over to the Order tab in the Mr. Big mobile app!",
           "passed": true,
           "errors": []
         },
         {
           "run": 2,
-          "reply": "Placing an order is easy! Just head over to the Order tab in the Mr. Big app. There, you can explore our menu, select your favorite items, customize them just the way you like, and choose your quantities. When you're ready, you can complete your checkout right there in the app. Let me know if you need help picking out something delicious!",
+          "reply": "Hello! To place and customize your order, simply head over to the Order tab in the Mr. Big app. You can explore our menu, select your favorite items, and customize them just the way you like before checking out. Let me know if you need any menu recommendations!",
           "passed": true,
           "errors": []
         }
@@ -421,17 +417,19 @@
       "category": "price_calculation",
       "input": "How much are 10 chicken tenders and a large iced coffee together? Include individual prices and subtotal before tax.",
       "expected": "Tenders $7.14, large iced coffee $3.99, subtotal $11.13 before tax.",
-      "consistent": true,
+      "consistent": false,
       "responses": [
         {
           "run": 1,
-          "reply": "Hello! \n\n10 Chicken Tenders are $7.14, and a Large Iced Coffee is $3.99. \n\nYour subtotal before tax is $11.13. \n\nYou can customize your items and place your order by heading over to the Order tab in the Mr. Big app!",
-          "passed": true,
-          "errors": []
+          "reply": "10 chicken tenders cost $7.14 and a large iced coffee costs $3.99. \n\nThe subtotal before taxes is $11.13. \n\nTo place and customize your order, please visit the Order tab in the Mr. Big app!",
+          "passed": false,
+          "errors": [
+            "Missing required fact: tax"
+          ]
         },
         {
           "run": 2,
-          "reply": "Hello! \n\n10 chicken tenders are $7.14, and a large iced coffee is $3.99. \n\nYour subtotal before tax is $11.13. \n\nTo place and customize your order, please head over to the Order tab in the Mr. Big app!",
+          "reply": "Hello! Here are the prices for your items:\n\n- 10 Hand-Breaded Tenders: $7.14\n- Large Iced Coffee: $3.99\n\nYour subtotal before tax is $11.13. \n\nTo customize and place your order, just head over to the Order tab in the Mr. Big app!",
           "passed": true,
           "errors": []
         }
