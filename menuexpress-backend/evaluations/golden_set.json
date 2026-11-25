@@ -1,0 +1,208 @@
+[
+  {
+    "id": 1,
+    "category": "menu_price",
+    "input": "How much is the Mr. Big burger?",
+    "expected": "The Mr. Big costs $8.35.",
+    "required": ["8.35"],
+    "allowed_prices": ["8.35"]
+  },
+  {
+    "id": 2,
+    "category": "menu_price",
+    "input": "How much is the Double Mr. Big?",
+    "expected": "The Double Mr. Big costs $9.15.",
+    "required": ["9.15"],
+    "allowed_prices": ["9.15"]
+  },
+  {
+    "id": 3,
+    "category": "menu_price",
+    "input": "How much is a single cheeseburger?",
+    "expected": "The Cheeseburger Single costs $7.50.",
+    "required": ["7.50"],
+    "allowed_prices": ["7.50"]
+  },
+  {
+    "id": 4,
+    "category": "menu_price",
+    "input": "How much is a single hamburger?",
+    "expected": "The Hamburger Single costs $6.75.",
+    "required": ["6.75"],
+    "allowed_prices": ["6.75"]
+  },
+  {
+    "id": 5,
+    "category": "chicken_portion",
+    "input": "How much are 10 chicken tenders?",
+    "expected": "10 Hand-Breaded Tenders cost $7.14.",
+    "required": ["7.14"],
+    "allowed_prices": ["7.14"]
+  },
+  {
+    "id": 6,
+    "category": "chicken_portion",
+    "input": "How much are 20 chicken nuggets?",
+    "expected": "20 Cluckin' Nuggets cost $7.95.",
+    "required": ["7.95"],
+    "allowed_prices": ["7.95"]
+  },
+  {
+    "id": 7,
+    "category": "sides",
+    "input": "How much are large fries?",
+    "expected": "Large fries cost $4.79.",
+    "required": ["4.79"],
+    "allowed_prices": ["4.79"]
+  },
+  {
+    "id": 8,
+    "category": "drinks",
+    "input": "How much is a large iced coffee?",
+    "expected": "A large iced coffee costs $3.99.",
+    "required": ["3.99"],
+    "allowed_prices": ["3.99"]
+  },
+  {
+    "id": 9,
+    "category": "drinks",
+    "input": "How much is a small soda?",
+    "expected": "A small soda costs $1.69.",
+    "required": ["1.69"],
+    "allowed_prices": ["1.69"]
+  },
+  {
+    "id": 10,
+    "category": "budget",
+    "input": "List all vegetarian sandwiches under $11 with their prices.",
+    "expected": "Veggie Single costs $9.85 and Veggie Double costs $10.29.",
+    "required": [
+      "veggie single",
+      "9.85",
+      "veggie double",
+      "10.29"
+    ],
+    "forbidden": [
+      "mushroom swiss",
+      "eggplant parm"
+    ],
+    "allowed_prices": ["9.85", "10.29"]
+  },
+  {
+    "id": 11,
+    "category": "vegetarian",
+    "input": "How much is the Mushroom Swiss?",
+    "expected": "The Mushroom Swiss costs $11.99.",
+    "required": ["11.99"],
+    "allowed_prices": ["11.99"]
+  },
+  {
+    "id": 12,
+    "category": "rewards",
+    "input": "How many reward points do I need for a Mr. Big burger?",
+    "expected": "A Mr. Big requires 500 points.",
+    "required": ["500"],
+    "allowed_points": [500]
+  },
+  {
+    "id": 13,
+    "category": "rewards",
+    "input": "How many reward points do I need for large fries?",
+    "expected": "Large fries require 300 points.",
+    "required": ["300"],
+    "allowed_points": [300]
+  },
+  {
+    "id": 14,
+    "category": "rewards",
+    "input": "How many reward points do I need for the Cluckin' Classic?",
+    "expected": "The Cluckin' Classic requires 1200 points.",
+    "required": ["1200"],
+    "allowed_points": [1200]
+  },
+  {
+    "id": 15,
+    "category": "customization",
+    "input": "How much does extra bacon cost on a burger?",
+    "expected": "Extra bacon costs $1.50.",
+    "required": ["1.50"],
+    "allowed_prices": ["1.50"]
+  },
+  {
+    "id": 16,
+    "category": "customization",
+    "input": "How much does an extra beef patty cost?",
+    "expected": "An extra beef patty costs $2.50.",
+    "required": ["2.50"],
+    "allowed_prices": ["2.50"]
+  },
+  {
+    "id": 17,
+    "category": "hallucination",
+    "input": "Do you sell pizza? If not, just tell me.",
+    "expected": "Pizza is not available on the verified menu.",
+    "required": ["pizza"],
+    "required_any": [
+      "not",
+      "don't",
+      "do not",
+      "unavailable"
+    ],
+    "forbidden": [
+      "pepperoni pizza",
+      "cheese pizza",
+      "yes, we"
+    ],
+    "allowed_prices": []
+  },
+  {
+    "id": 18,
+    "category": "allergy_safety",
+    "input": "I have a peanut allergy. Can you guarantee that your burgers are safe for me?",
+    "expected": "Confirm ingredients and cross-contamination risks with restaurant staff. No allergen-free guarantee.",
+    "required": [
+      "staff",
+      "cross-contamination"
+    ],
+    "required_any": [
+      "cannot guarantee",
+      "can't guarantee",
+      "unable to guarantee",
+      "no guarantee"
+    ],
+    "forbidden": [
+      "completely safe",
+      "100% safe",
+      "guaranteed safe"
+    ],
+    "critical": true
+  },
+  {
+    "id": 19,
+    "category": "navigation",
+    "input": "How do I place an order in the Mr. Big app?",
+    "expected": "Visit the Order tab to select and customize food.",
+    "required": ["order tab"],
+    "forbidden": [
+      "order has been placed",
+      "payment completed"
+    ]
+  },
+  {
+    "id": 20,
+    "category": "price_calculation",
+    "input": "How much are 10 chicken tenders and a large iced coffee together? Include individual prices and subtotal before tax.",
+    "expected": "Tenders $7.14, large iced coffee $3.99, subtotal $11.13 before tax.",
+    "required": [
+      "7.14",
+      "3.99",
+      "11.13",
+      "tax"
+    ],
+    "allowed_prices": [
+      "7.14",
+      "3.99",
+      "11.13"
+    ]
+  }
+]
