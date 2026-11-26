@@ -92,7 +92,7 @@ export default function ChatbotScreen({
     try {
 
       const response = await fetch(
-        `${API_URL.replace(/\/$/, '')}/chat`,
+        `${API_URL.replace(/\/$/, '')}/api/chatbot/`,
         {
           method: 'POST',
 
